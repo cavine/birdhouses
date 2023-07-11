@@ -56,8 +56,6 @@ public class BirdhouseFileWriter {
                         return vals;
                     }
 
-                    //log.info(Double.toString(diff));
-
                     vals.add(now.toString());
                     vals.add(values[2]);
                     vals.add(Double.toString(diff));
