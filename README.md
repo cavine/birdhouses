@@ -1,7 +1,8 @@
 # Birdhouses
 This simple plugin shows an infobox on the top left of the screen to notify you when your next birdhouse run is available. 
 
-<img width="206" alt="image" src="https://github.com/cavine/birdhouses/assets/11843041/16bc6e79-36bb-488a-bc40-e4164e0d3868">
+<img width="215" alt="image" src="https://github.com/cavine/birdhouses/assets/11843041/afebc6b0-9441-4f4a-8936-bfdd54fd4846">
+
 
 Details:
 
