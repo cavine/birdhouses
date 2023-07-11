@@ -46,8 +46,6 @@ public class BirdHousePlugin extends Plugin
 	@Override
 	protected void startUp() throws Exception
 	{
-		log.info("Example started!");
-		//overlayManager.add(overlay);
 		if (client.getGameState().equals(GameState.LOGGED_IN) || client.getGameState().equals(GameState.LOADING)) {
 			updateWriterHash();
 		}
@@ -59,7 +57,6 @@ public class BirdHousePlugin extends Plugin
 	{
 		if (event.getGameState() == GameState.LOGGED_IN)
 		{
-			log.info("Calling update hash on state...");
 			updateWriterHash();
 			ArrayList<String> arr = writer.getDifference();
 			birdhouseBox = new BirdHouseInfoBox(houseImg, this, arr.get(0), arr.get(1), Double.parseDouble(arr.get(2)));
@@ -79,7 +76,6 @@ public class BirdHousePlugin extends Plugin
 	@Override
 	protected void shutDown() throws Exception
 	{
-		log.info("Example stopped!");
 		infoBoxManager.removeInfoBox(birdhouseBox);
 	}
 
@@ -101,7 +97,6 @@ public class BirdHousePlugin extends Plugin
 
 			//Birdhouses setup too recently. Most trips are done in one go. 5 min grace period
 			if (diff > 45.0) {
-				log.info("Ignoring trap placement due to grace period");
 				return;
 			}
 
@@ -117,39 +112,6 @@ public class BirdHousePlugin extends Plugin
 			infoBoxManager.addInfoBox(birdhouseBox);
 		}
 	}
-
-	/*
-	@Subscribe
-	public void onMenuOptionClicked(MenuOptionClicked option)
-	{
-		String optionClicked = option.getMenuOption();
-		String targetString = option.getMenuTarget().toString();
-
-		//client.addChatMessage(ChatMessageType.GAMEMESSAGE, "", "Example says " + option.getMenuTarget().toString(), null);
-
-		if (optionClicked.equals("Use")) {
-			if (targetString.contains("house") && targetString.contains("Space")) {
-				writer.writeData();
-				ArrayList<String> arr = writer.getDifference();
-				java.util.List<InfoBox> boxes = infoBoxManager.getInfoBoxes();
-				var found = false;
-				for (var i=0; i<boxes.size(); i++) {
-					if (boxes.get(i).toString().contains("com.birdhouses")) {
-						infoBoxManager.removeInfoBox(boxes.get(i));
-						break;
-					}
-				}
-				birdhouseBox = new BirdHouseInfoBox(houseImg, this, arr.get(0), arr.get(1), Double.parseDouble(arr.get(2)));
-				infoBoxManager.addInfoBox(birdhouseBox);
-			}
-		}
-
-
-
-
-	}*/
-
-
 
 	private void updateWriterHash() {
 		String hash = String.valueOf(client.getAccountHash());
